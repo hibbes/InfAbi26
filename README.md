@@ -66,9 +66,9 @@
 
 | Jahr | Aufgaben | Lösungen |
 |---|---|---|
-| 2025 HT | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a92e52_Informatik%202025%20HT%20Aufgaben.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171ad33d9_Informatik%202025%20HT%20L%C3%B6sungen.pdf) |
-| 2024 HT | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b05ea7_Inf_2024_HT_Aufgaben.pdf) | [EWH](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b069c5_Inf_2024_HT_EWH.pdf) |
-| 2023 HT | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b041cb_Inf_2023_HT_Aufgaben.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b04fa8_Inf_2023_HT_Loesungen.pdf) |
+| 2025 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a92e52_Informatik%202025%20HT%20Aufgaben.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171ad33d9_Informatik%202025%20HT%20L%C3%B6sungen.pdf) |
+| 2024 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b05ea7_Inf_2024_HT_Aufgaben.pdf) | [EWH](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b069c5_Inf_2024_HT_EWH.pdf) |
+| 2023 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b041cb_Inf_2023_HT_Aufgaben.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b04fa8_Inf_2023_HT_Loesungen.pdf) |
 | 2021 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a72ade_Informatik%202021%20-%20Aufgaben.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a73a54_Informatik%202021%20-%20L%C3%B6sungen.pdf) |
 | 2020 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a71a85_Informatik%202020%20-%20Aufgaben.pdf) | — |
 | 2019 B3 | [Aufgaben](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a6cdf7_HT%202019%20B3.pdf) | [Lösungen](https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a6f55c_HT%202019%20L%C3%B6sungen.pdf) |
