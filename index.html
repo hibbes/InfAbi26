@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abitur Informatik LF – 3-Wochen-Lernplan | J2_LF_Inf1</title>
+<style>
+:root {
+  --bg: #0f1117; --card: #1a1d27; --border: #2a2d3e;
+  --accent: #6366f1; --accent2: #22d3ee; --accent3: #a78bfa;
+  --green: #34d399; --yellow: #fbbf24; --red: #f87171;
+  --text: #e2e8f0; --muted: #94a3b8;
+  --week1: #6366f1; --week2: #22d3ee; --week3: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+<style>
+header { background: linear-gradient(135deg, #1e1b4b 0%, #1a1d27 100%); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+header h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+header .meta { color: var(--muted); font-size: 0.95rem; }
+header .meta strong { color: var(--yellow); }
+.countdown { display: inline-block; margin-top: 1rem; background: rgba(251,191,36,0.15); border: 1px solid var(--yellow); border-radius: 8px; padding: 0.4rem 1.2rem; font-size: 0.9rem; color: var(--yellow); }
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
+.topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+.topic-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; transition: transform .2s, border-color .2s; }
+.topic-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.topic-card .tag { font-size: 0.7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.topic-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+.topic-card a { font-size: 0.82rem; }
+.section-title { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
+.week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+</style>
+<style>
+.day-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.2rem; border-left: 4px solid var(--accent); transition: transform .2s; }
+.day-card:hover { transform: translateY(-2px); }
+.day-card.w1 { border-left-color: var(--week1); }
+.day-card.w2 { border-left-color: var(--week2); }
+.day-card.w3 { border-left-color: var(--week3); }
+.day-card.exam { border-left-color: var(--yellow); background: linear-gradient(135deg, #1a1d27, #1e1b10); }
+.day-num { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 0.15rem; }
+.day-title { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.5rem; }
+.day-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.day-links a { font-size: 0.78rem; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 6px; padding: 0.2rem 0.6rem; color: var(--accent2); white-space: nowrap; }
+.day-links a:hover { background: rgba(99,102,241,0.3); text-decoration: none; }
+.day-links a.ext { background: rgba(34,211,238,0.1); border-color: rgba(34,211,238,0.25); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 2rem; }
+th { background: rgba(99,102,241,0.2); padding: 0.7rem 1rem; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--border); }
+td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.2rem; }
+.badge.gruen { background: rgba(52,211,153,0.2); color: var(--green); }
+.badge.blau { background: rgba(99,102,241,0.2); color: var(--accent3); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 Abitur Informatik LF – 3-Wochen-Lernplan</h1>
+  <p class="meta">Kurs <strong>J2_LF_Inf1</strong> · Schiller-Gymnasium Offenburg · Klausur: <strong>Mo, 21. April 2026</strong></p>
+  <div class="countdown" id="cd">Lade Countdown…</div>
+</header>
+<div class="container">
+
+<div class="section-title">📚 Themenübersicht</div>
+<div class="topics">
+  <div class="topic-card">
+    <div class="tag" style="color:#22d3ee">3.3.1</div>
+    <h3>Daten &amp; Codierung</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Relationale Datenbanken, SQL</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/44" target="_blank">→ IServ Forum</a>
+  </div>
+  <div class="topic-card">
+    <div class="tag" style="color:#6366f1">3.3.2</div>
+    <h3>Algorithmen</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">OOP/Java, Sortieren, Graphen</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">→ IServ Forum</a>
+  </div>
+  <div class="topic-card">
+    <div class="tag" style="color:#a78bfa">3.3.3</div>
+    <h3>Rechner &amp; Netze</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Boolesche Algebra, Schaltnetze</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/77" target="_blank">→ IServ Forum</a>
+  </div>
+</div>
+<div class="topics">
+  <div class="topic-card">
+    <div class="tag" style="color:#f87171">3.3.4</div>
+    <h3>Datensicherheit</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Kryptographie, Angriffe, PKI</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/78" target="_blank">→ IServ Forum</a>
+  </div>
+  <div class="topic-card">
+    <div class="tag" style="color:#fbbf24">3.3.5</div>
+    <h3>Automaten &amp; Sprachen</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">DEA, Grammatiken, EBNF</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/79" target="_blank">→ IServ Forum</a>
+  </div>
+  <div class="topic-card">
+    <div class="tag" style="color:#34d399">Üben</div>
+    <h3>Abituraufgaben 2017–2025</h3>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Alle Klausuren + Lösungen</p>
+    <a href="https://schigy-og.de/iserv/forum/22/topic/81" target="_blank">→ IServ Forum</a>
+  </div>
+</div>
+
+<div class="section-title" style="color:var(--week1)">🗓 Woche 1 · Algorithmen <span style="font-size:.8rem;color:var(--muted);font-weight:400">1.–7. April</span></div>
+<div class="week-grid">
+  <div class="day-card w1">
+    <div class="day-num">Tag 1 · Di, 1.4.</div>
+    <div class="day-title">OOP Grundlagen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Klassen, Objekte, Datentypen, Methoden, Kapselung</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://www.youtube.com/watch?v=o7uP27a67q" target="_blank" class="ext">▶ Java Tutorial 1–10</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 2 · Mi, 2.4.</div>
+    <div class="day-title">OOP Vertiefung</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Vererbung, Polymorphie, abstrakte Klassen, UML</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://www.youtube.com/watch?v=zzwUH3vbNkc" target="_blank" class="ext">▶ Vererbung &amp; Polymorphie</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 3 · Do, 3.4.</div>
+    <div class="day-title">Datenstrukturen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Listen, Binärbäume, Traversierungen, Graphen</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://www.youtube.com/watch?v=7LoH0ZdK-ho" target="_blank" class="ext">▶ Binärbäume</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 4 · Fr, 4.4.</div>
+    <div class="day-title">Einfache Sortierverfahren</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Bubble, Selection, Insertion Sort · O-Notation</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://studyflix.de/informatik/bubblesort-1175" target="_blank" class="ext">↗ Bubblesort</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 5 · Sa, 5.4.</div>
+    <div class="day-title">Höhere Sortierverfahren</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Mergesort, Quicksort, Bucketsort, Radixsort</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://www.youtube.com/watch?v=JSceec-wEyw" target="_blank" class="ext">▶ Merge Sort</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 6 · So, 6.4.</div>
+    <div class="day-title">Graphenalgorithmen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Dijkstra, Kruskal, Breiten- &amp; Tiefensuche</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ 3.3.2</a>
+      <a href="https://www.youtube.com/watch?v=2poq1Pt32oE" target="_blank" class="ext">▶ Dijkstra</a>
+    </div>
+  </div>
+  <div class="day-card w1">
+    <div class="day-num">Tag 7 · Mo, 7.4.</div>
+    <div class="day-title">🔁 Wiederholung Algorithmen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Übungsaufgaben + alte Klausuren</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/43" target="_blank">IServ Übungen</a>
+      <a href="https://schigy-og.de/iserv/forum/22/topic/81" target="_blank">Alte Klausuren</a>
+      <a href="https://www.info-bw.de" target="_blank" class="ext">↗ info-bw.de</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-title" style="color:var(--week2)">🗓 Woche 2 · Datenbanken + Rechner + Datensicherheit <span style="font-size:.8rem;color:var(--muted);font-weight:400">8.–14. April</span></div>
+<div class="week-grid">
+  <div class="day-card w2">
+    <div class="day-num">Tag 8 · Di, 8.4.</div>
+    <div class="day-title">Relationale Datenbanken</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">ERM, UML, Schlüssel, Normalformen</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/44" target="_blank">IServ 3.3.1</a>
+      <a href="https://www.youtube.com/watch?v=aqtM67eXgVA" target="_blank" class="ext">▶ ERM-Video</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 9 · Mi, 9.4.</div>
+    <div class="day-title">SQL Abfragen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">SELECT, WHERE, JOIN, GROUP BY, Aggregatfunktionen</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/44" target="_blank">IServ 3.3.1</a>
+      <a href="https://www.sql-insekten.de" target="_blank" class="ext">↗ SQL Insekten</a>
+      <a href="https://sql.hauptquartier.eu/" target="_blank" class="ext">↗ SQL Tool</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 10 · Do, 10.4.</div>
+    <div class="day-title">SQL Manipulation</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">INSERT, UPDATE, DELETE + SQL-Injection</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/44" target="_blank">IServ 3.3.1</a>
+      <a href="https://www.youtube.com/watch?v=ciNHn38EyRc" target="_blank" class="ext">▶ SQL Injection</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 11 · Fr, 11.4.</div>
+    <div class="day-title">Boolesche Algebra</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Gatter (AND/OR/XOR/NOT), Schaltnetze, Wahrheitstafeln</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/77" target="_blank">IServ 3.3.3</a>
+      <a href="https://www.youtube.com/watch?v=yYknxIg1W58" target="_blank" class="ext">▶ Schaltnetze</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 12 · Sa, 12.4.</div>
+    <div class="day-title">KV-Diagramme</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">DNF/KNF, Vereinfachung, De-Morgan, Addierer/Latch</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/77" target="_blank">IServ 3.3.3</a>
+      <a href="https://www.youtube.com/watch?v=yYknxIg1W58" target="_blank" class="ext">▶ Bool'sche Logik</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 13 · So, 13.4.</div>
+    <div class="day-title">Kryptographie I</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Sym./Asym. Verschlüsselung, RSA, Hashfunktionen</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/78" target="_blank">IServ 3.3.4</a>
+      <a href="https://www.youtube.com/watch?v=AQDCe585Lnc" target="_blank" class="ext">▶ Sym. vs. Asym.</a>
+    </div>
+  </div>
+  <div class="day-card w2">
+    <div class="day-num">Tag 14 · Mo, 14.4.</div>
+    <div class="day-title">Kryptographie II</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Signaturen, PKI, Zertifikate, MITM, DDoS, Phishing</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/78" target="_blank">IServ 3.3.4</a>
+      <a href="https://www.youtube.com/watch?v=vsXMMT2CqqE" target="_blank" class="ext">▶ Man in the Middle</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-title" style="color:var(--week3)">🗓 Woche 3 · Automaten + Prüfungssimulation <span style="font-size:.8rem;color:var(--muted);font-weight:400">15.–20. April</span></div>
+<div class="week-grid">
+  <div class="day-card w3">
+    <div class="day-num">Tag 15 · Di, 15.4.</div>
+    <div class="day-title">Formale Sprachen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Grammatiken, EBNF, Syntaxdiagramme, Wortproblem</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/79" target="_blank">IServ 3.3.5</a>
+      <a href="https://www.youtube.com/watch?v=5s7mGfCNWYg" target="_blank" class="ext">▶ Formale Sprachen</a>
+    </div>
+  </div>
+  <div class="day-card w3">
+    <div class="day-num">Tag 16 · Mi, 16.4.</div>
+    <div class="day-title">Endliche Automaten</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">DEA, Mealy-Automat, Zustandsdiagramm ↔ Tabelle</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/79" target="_blank">IServ 3.3.5</a>
+      <a href="https://www.youtube.com/watch?v=528Jc3q86F8" target="_blank" class="ext">▶ RegEx + Automaten</a>
+    </div>
+  </div>
+  <div class="day-card w3">
+    <div class="day-num">Tag 17 · Do, 17.4.</div>
+    <div class="day-title">Kellerautomaten + Grenzen</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Kontextfreie Sprachen, Kellerautomat, Chomsky-Hierarchie</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22/topic/79" target="_blank">IServ 3.3.5</a>
+      <a href="https://schigy-og.de/iserv/forum/22/topic/79" target="_blank">Skript S. 35–42</a>
+    </div>
+  </div>
+  <div class="day-card w3">
+    <div class="day-num">Tag 18 · Fr, 18.4.</div>
+    <div class="day-title">🧪 Prüfungssimulation I</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">HT 2024 unter echten Bedingungen (270 min)</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b05ea7_Inf_2024_HT_Aufgaben.pdf" target="_blank">Aufgaben 2024</a>
+      <a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b069c5_Inf_2024_HT_EWH.pdf" target="_blank">Lösungen</a>
+    </div>
+  </div>
+  <div class="day-card w3">
+    <div class="day-num">Tag 19 · Sa, 19.4.</div>
+    <div class="day-title">Auswertung + Nacharbeit</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">Schwachstellen gezielt wiederholen</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/forum/22" target="_blank">Alle IServ-Foren</a>
+      <a href="https://www.info-bw.de" target="_blank" class="ext">↗ info-bw.de</a>
+    </div>
+  </div>
+  <div class="day-card w3">
+    <div class="day-num">Tag 20 · So, 20.4.</div>
+    <div class="day-title">🧪 Prüfungssimulation II</div>
+    <p style="font-size:.82rem;color:var(--muted);margin-bottom:.6rem">HT 2025 + kurze Wiederholung</p>
+    <div class="day-links">
+      <a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a92e52_Informatik%202025%20HT%20Aufgaben.pdf" target="_blank">Aufgaben 2025</a>
+      <a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171ad33d9_Informatik%202025%20HT%20L%C3%B6sungen.pdf" target="_blank">Lösungen</a>
+    </div>
+  </div>
+  <div class="day-card exam">
+    <div class="day-num" style="color:var(--yellow)">Tag 21 · Mo, 21.4.</div>
+    <div class="day-title" style="color:var(--yellow);font-size:1.1rem">🎓 ABITURKLAUSUR</div>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:.6rem">Entspannt ankommen · Wasser mitnehmen · Taschenrechner!</p>
+    <div class="day-links">
+      <span style="font-size:.85rem;color:var(--green)">💪 Ihr schafft das!</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">📁 Übungsklausuren im IServ</div>
+<table>
+<thead><tr><th>Jahr</th><th>Aufgaben</th><th>Lösungen</th></tr></thead>
+<tbody>
+<tr><td><strong>2025 HT</strong></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a92e52_Informatik%202025%20HT%20Aufgaben.pdf" target="_blank">Aufgaben PDF</a></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171ad33d9_Informatik%202025%20HT%20L%C3%B6sungen.pdf" target="_blank">Lösungen PDF</a></td></tr>
+<tr><td><strong>2024 HT</strong></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b05ea7_Inf_2024_HT_Aufgaben.pdf" target="_blank">Aufgaben PDF</a></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b069c5_Inf_2024_HT_EWH.pdf" target="_blank">Erwartungshorizont</a></td></tr>
+<tr><td><strong>2023 HT</strong></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b041cb_Inf_2023_HT_Aufgaben.pdf" target="_blank">Aufgaben PDF</a></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b04fa8_Inf_2023_HT_Loesungen.pdf" target="_blank">Lösungen PDF</a></td></tr>
+<tr><td>2021</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a72ade_Informatik%202021%20-%20Aufgaben.pdf" target="_blank">Aufgaben PDF</a></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a73a54_Informatik%202021%20-%20L%C3%B6sungen.pdf" target="_blank">Lösungen PDF</a></td></tr>
+<tr><td>2020</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a71a85_Informatik%202020%20-%20Aufgaben.pdf" target="_blank">Aufgaben PDF</a></td><td><span style="color:var(--muted)">—</span></td></tr>
+<tr><td>2019 B3</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a6cdf7_HT%202019%20B3.pdf" target="_blank">Aufgaben PDF</a></td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a6f55c_HT%202019%20L%C3%B6sungen.pdf" target="_blank">Lösungen PDF</a></td></tr>
+<tr><td>2018</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a66cc0_HT2018.pdf" target="_blank">Aufgaben PDF</a></td><td><span style="color:var(--muted)">—</span></td></tr>
+<tr><td>2017</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171a5ec30_HT%202017.pdf" target="_blank">Aufgaben PDF</a></td><td><span style="color:var(--muted)">—</span></td></tr>
+<tr><td>Musteraufgaben 2024 BG</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c5171b07f88_Musteraufgaben_Informatik_2024_BG.pdf" target="_blank">PDF</a></td><td><span style="color:var(--muted)">—</span></td></tr>
+<tr><td>Musterfundus 2023</td><td><a href="https://schigy-og.de/iserv/fs/file/forum/81/141/68c8f7dd71f17_INF_ABI23_MusterFundus.pdf" target="_blank">PDF</a></td><td><span style="color:var(--muted)">—</span></td></tr>
+</tbody>
+</table>
+
+<div class="section-title">🔗 Nützliche Links</div>
+<div class="topics" style="margin-bottom:2rem">
+  <div class="topic-card"><h3>📖 info-bw.de</h3><p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Themenübersicht BW Informatik LF</p><a href="https://www.info-bw.de" target="_blank">→ Öffnen</a></div>
+  <div class="topic-card"><h3>🛠 SQL Insekten</h3><p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">SQL interaktiv üben</p><a href="https://www.sql-insekten.de" target="_blank">→ Öffnen</a></div>
+  <div class="topic-card"><h3>🛠 SQL Trainer</h3><p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">perschke.info SQL-Übungen</p><a href="https://www.perschke.info/sqlt-app/" target="_blank">→ Öffnen</a></div>
+  <div class="topic-card"><h3>📂 IServ Forum</h3><p style="font-size:.82rem;color:var(--muted);margin-bottom:.5rem">Alle Materialien J2_LF_Inf1</p><a href="https://schigy-og.de/iserv/forum/22" target="_blank">→ Öffnen</a></div>
+</div>
+
+</div><!-- /container -->
+<footer>
+  Erstellt für den Kurs J2_LF_Inf1 · Schiller-Gymnasium Offenburg ·
+  <a href="https://github.com/hibbes/abi-inf-lernplan" target="_blank">GitHub</a>
+</footer>
+<script>
+const exam = new Date('2026-04-21T08:00:00');
+function updateCountdown() {
+  const now = new Date();
+  const diff = exam - now;
+  if (diff <= 0) { document.getElementById('cd').textContent = '🎓 Heute ist der große Tag!'; return; }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  document.getElementById('cd').textContent = `⏳ Noch ${d} Tage und ${h} Stunden bis zur Klausur`;
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
+</body>
+</html>
